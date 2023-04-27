@@ -1,0 +1,27 @@
+{
+    "name": "jezzdk/statamic-ai-fields",
+    "autoload": {
+        "psr-4": {
+            "Jezzdk\\StatamicAiFields\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Ai Fields",
+            "description": "Statamic Ai Fields addon"
+        },
+        "laravel": {
+            "providers": [
+                "Jezzdk\\StatamicAiFields\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "openai-php/laravel": "^0.4.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
