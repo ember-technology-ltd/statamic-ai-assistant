@@ -32,47 +32,47 @@
                     <h3 class="text-grey-80 mt-4">Select the tool you wish to use.</h3>
 
                     <div class="grid grid-cols-3 gap-4 mt-4">
-                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'idea_generator'">
+                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-20 cursor-pointer" @click="tool = 'idea_generator'">
                             <h3>Idea generator</h3>
                             <p class="text-grey-70 text-sm mt-2">Find some ideas for your next article.</p>
                         </div>
-                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'outliner'">
+                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-20 cursor-pointer" @click="tool = 'outliner'">
                             <h3>Outliner</h3>
                             <p class="text-grey-70 text-sm mt-2">Create an outline for an article based on a short summary.</p>
                         </div>
-                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'intro_text'">
+                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-20 cursor-pointer" @click="tool = 'intro_text'">
                             <h3>Intro</h3>
                             <p class="text-grey-70 text-sm mt-2">Create a compelling intro from an article title.</p>
                         </div>
-                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'summarizer'">
+                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-20 cursor-pointer" @click="tool = 'summarizer'">
                             <h3>Summarizer</h3>
                             <p class="text-grey-70 text-sm mt-2">Create a summary of a large piece of text.</p>
                         </div>
-                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'rephraser'">
+                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-20 cursor-pointer" @click="tool = 'rephraser'">
                             <h3>Rephrase tool</h3>
                             <p class="text-grey-70 text-sm mt-2">Not satisfied with your text? Rephrase it to something slightly (or completely) different.</p>
                         </div>
-                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'grammar_check'">
+                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-20 cursor-pointer" @click="tool = 'grammar_check'">
                             <h3>Grammar check</h3>
                             <p class="text-grey-70 text-sm mt-2">Check your text for grammatical errors and have them fixed.</p>
                         </div>
-                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'copywriting'">
+                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-20 cursor-pointer" @click="tool = 'copywriting'">
                             <h3>Copywriting by formula</h3>
                             <p class="text-grey-70 text-sm mt-2">Create text based on the AIDA or QUEST formula.</p>
                         </div>
-                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'product_headlines'">
+                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-20 cursor-pointer" @click="tool = 'product_headlines'">
                             <h3>Product headlines</h3>
                             <p class="text-grey-70 text-sm mt-2">Create product headlines that stands out.</p>
                         </div>
-                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'product_description'">
+                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-20 cursor-pointer" @click="tool = 'product_description'">
                             <h3>Product description</h3>
                             <p class="text-grey-70 text-sm mt-2">Create an engaging product description tailored to your audience.</p>
                         </div>
-                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'category_description'">
+                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-20 cursor-pointer" @click="tool = 'category_description'">
                             <h3>Category description</h3>
                             <p class="text-grey-70 text-sm mt-2">Create an engaging category description tailored to your audience.</p>
                         </div>
-                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'call_to_action'">
+                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-20 cursor-pointer" @click="tool = 'call_to_action'">
                             <h3>Call-to-action</h3>
                             <p class="text-grey-70 text-sm mt-2">Make great call-to-action text for your product.</p>
                         </div>
