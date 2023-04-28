@@ -9,6 +9,10 @@
                 <button type="button" class="btn" @click="copy">Copy to clipboard</button>
             </div>
         </div>
+
+        <div class="my-4 text-sm text-grey-60 text-center">
+            Disclaimer: The generated text is for inspiration only and should not be used as is. It is your responsibility to ensure that the generated text is in compliance with your local laws and regulations.
+        </div>
     </div>
 </template>
 

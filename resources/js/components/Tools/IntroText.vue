@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-2">
-        <h3 class="text-grey-80 mt-4">Idea Generator</h3>
+        <h3 class="text-grey-80 mt-4">Intro Text</h3>
         <div v-if="processing">
             <assistant-spinner />
         </div>
@@ -8,24 +8,13 @@
             <assistant-result :result="result" @cancel="result = null" />
         </div>
         <div v-else class="space-y-2">
-            <div class="flex justify-between gap-4">
-                <div class="w-1/2">
-                    <div class="help-block">
-                        <p>Topics to include (required)</p>
-                    </div>
-                    <text-input type="text" v-model="topics" placeholder="computer games, esport, gaming" :disabled="processing" />
-                    <div v-if="errors.topics" class="text-sm text-red">
-                        {{ errors.topics[0] }}
-                    </div>
+            <div>
+                <div class="help-block">
+                    <p>Headline (required)</p>
                 </div>
-                <div class="w-1/2">
-                    <div class="help-block">
-                        <p>Amount of ideas to generate</p>
-                    </div>
-                    <select-input :options="amountOptions" v-model="amount" :isReadOnly="processing" />
-                    <div v-if="errors.amount" class="text-sm text-red">
-                        {{ errors.amount[0] }}
-                    </div>
+                <text-input v-model="headline" placeholder="Provide the headline of the subject you want to make an intro to" :disabled="processing" />
+                <div v-if="errors.headline" class="text-sm text-red">
+                    {{ errors.headline[0] }}
                 </div>
             </div>
             <assistant-buttons :processing="processing" @submit="generate" @cancel="$emit('back')" />
@@ -40,8 +29,7 @@ export default {
     mixins: [GeneratorMixin],
     data() {
         return {
-            topics: null,
-            amount: 5,
+            headline: null,
         }
     },
     computed: {
@@ -62,9 +50,8 @@ export default {
     },
     methods: {
         generate() {
-            this.request('idea-generator', {
-                topics: this.topics,
-                amount: this.amount,
+            this.request('intro-text', {
+                headline: this.headline,
             });
         },
     }

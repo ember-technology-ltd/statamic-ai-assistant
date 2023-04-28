@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-2">
-        <h3 class="text-grey-80 mt-4">Product description</h3>
+        <h3 class="text-grey-80 mt-4">Copywriting by formula</h3>
         <div v-if="processing">
             <assistant-spinner />
         </div>
@@ -8,24 +8,13 @@
             <assistant-result :result="result" @cancel="result = null" />
         </div>
         <div v-else class="space-y-2">
-            <div class="flex justify-between gap-4">
-                <div class="w-1/2">
-                    <div class="help-block">
-                        <p>Audience (required)</p>
-                    </div>
-                    <text-input type="text" v-model="audience" placeholder="women" :disabled="processing" />
-                    <div v-if="errors.audience" class="text-sm text-red">
-                        {{ errors.audience[0] }}
-                    </div>
+            <div>
+                <div class="help-block">
+                    <p>Formula (required)</p>
                 </div>
-                <div class="w-1/2">
-                    <div class="help-block">
-                        <p>Tone (required)</p>
-                    </div>
-                    <select-input :options="toneOptions" v-model="tone" :isReadOnly="processing" />
-                    <div v-if="errors.tone" class="text-sm text-red">
-                        {{ errors.tone[0] }}
-                    </div>
+                <select-input :options="formulaOptions" v-model="formula" :isReadOnly="processing" />
+                <div v-if="errors.formula" class="text-sm text-red">
+                    {{ errors.formula[0] }}
                 </div>
             </div>
             <div class="flex justify-between gap-4">
@@ -40,11 +29,11 @@
                 </div>
                 <div class="w-1/2">
                     <div class="help-block">
-                        <p>Max words</p>
+                        <p>Audience (required)</p>
                     </div>
-                    <text-input type="text" v-model="max_words" placeholder="200" :disabled="processing" />
-                    <div v-if="errors.max_words" class="text-sm text-red">
-                        {{ errors.max_words[0] }}
+                    <text-input type="text" v-model="audience" placeholder="women" :disabled="processing" />
+                    <div v-if="errors.audience" class="text-sm text-red">
+                        {{ errors.audience[0] }}
                     </div>
                 </div>
             </div>
@@ -69,33 +58,31 @@ export default {
     mixins: [GeneratorMixin],
     data() {
         return {
+            formula: null,
             audience: null,
-            tone: null,
             product_title: null,
             product_description: null,
-            max_words: null,
         }
     },
     computed: {
-        toneOptions() {
+        formulaOptions() {
             return [
-                { value: 'professional', label: 'Professional' },
-                { value: 'informal', label: 'Informal' },
-                { value: 'humorous', label: 'Humorous' },
-                { value: 'optimistic', label: 'Optimistic' },
-                { value: 'friendly', label: 'Friendly' },
-                { value: 'exciting', label: 'Exciting' },
+                { value: '4C', label: '4C (Clear, Concise, Compelling, Credible)' },
+                { value: 'AIDA', label: 'AIDA (Attention, Interest, Desire, Action)' },
+                { value: 'FAB', label: 'FAB (Features, Advantages, Benefits)' },
+                { value: 'PAS', label: 'PAS (Problem, Agitate, Solution)' },
+                { value: 'PPPP', label: 'PPPP (Picture, Promise, Prove, Push)' },
+                { value: 'QUEST', label: 'QUEST (Qualify, Understand, Educate, Stimulate, Transition)' },
             ];
         }
     },
     methods: {
         generate() {
-            this.request('product-description', {
+            this.request('copywriting', {
+                formula: this.formula,
                 audience: this.audience,
-                tone: this.tone,
                 product_title: this.product_title,
                 product_description: this.product_description,
-                max_words: this.max_words,
             });
         },
     }

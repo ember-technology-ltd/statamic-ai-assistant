@@ -51,8 +51,8 @@
                             <p class="text-grey-70 text-sm mt-2">Create a summary of a large piece of text.</p>
                         </div>
                         <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'rephraser'">
-                            <h3>Rephraser</h3>
-                            <p class="text-grey-70 text-sm mt-2">Not satisfied with your text? Rephrase it to something slightly different.</p>
+                            <h3>Rephrase tool</h3>
+                            <p class="text-grey-70 text-sm mt-2">Not satisfied with your text? Rephrase it to something slightly (or completely) different.</p>
                         </div>
                         <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'grammar_check'">
                             <h3>Grammar check</h3>
@@ -87,6 +87,21 @@
                 <template v-if="tool === 'outliner'">
                     <outliner @back="tool = null" />
                 </template>
+                <template v-if="tool === 'intro_text'">
+                    <intro-text @back="tool = null" />
+                </template>
+                <template v-if="tool === 'summarizer'">
+                    <summarizer @back="tool = null" />
+                </template>
+                <template v-if="tool === 'rephraser'">
+                    <rephraser @back="tool = null" />
+                </template>
+                <template v-if="tool === 'grammar_check'">
+                    <grammar-check @back="tool = null" />
+                </template>
+                <template v-if="tool === 'copywriting'">
+                    <copywriting @back="tool = null" />
+                </template>
                 <template v-if="tool === 'product_description'">
                     <product-description @back="tool = null" />
                 </template>
@@ -98,12 +113,22 @@
 <script>
 import IdeaGenerator from './Tools/IdeaGenerator.vue';
 import Outliner from './Tools/Outliner.vue';
+import IntroText from './Tools/IntroText.vue';
+import Summarizer from './Tools/Summarizer.vue';
+import Rephraser from './Tools/Rephraser.vue';
+import GrammarCheck from './Tools/GrammarCheck.vue';
+import Copywriting from './Tools/Copywriting.vue';
 import ProductDescription from './Tools/ProductDescription.vue';
 
 export default {
     components: {
         'idea-generator': IdeaGenerator,
         'outliner': Outliner,
+        'intro-text': IntroText,
+        'summarizer': Summarizer,
+        'rephraser': Rephraser,
+        'grammar-check': GrammarCheck,
+        'copywriting': Copywriting,
         'product-description': ProductDescription,
     },
     data() {

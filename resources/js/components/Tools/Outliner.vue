@@ -8,12 +8,14 @@
             <assistant-result :result="result" @cancel="result = null" />
         </div>
         <div v-else class="space-y-2">
-            <div class="help-block">
-                <p>Summary</p>
-            </div>
-            <textarea-input v-model="summary" placeholder="Provide a short summary of the subject you want to write about" :disabled="processing" />
-            <div v-if="errors.summary" class="text-sm text-red">
-                {{ errors.summary[0] }}
+            <div>
+                <div class="help-block">
+                    <p>Summary (required)</p>
+                </div>
+                <textarea-input v-model="summary" placeholder="Provide a short summary of the subject you want to write about" :disabled="processing" />
+                <div v-if="errors.summary" class="text-sm text-red">
+                    {{ errors.summary[0] }}
+                </div>
             </div>
             <assistant-buttons :processing="processing" @submit="generate" @cancel="$emit('back')" />
         </div>
@@ -28,6 +30,7 @@ export default {
     data() {
         return {
             summary: null,
+            amount: 5,
         }
     },
     computed: {
@@ -50,6 +53,7 @@ export default {
         generate() {
             this.request('outliner', {
                 summary: this.summary,
+                amount: this.amount,
             });
         },
     }
