@@ -1,12 +1,22 @@
 <?php
 
-namespace Jezzdk\StatamicAiFields\Http\Controllers;
+namespace Jezzdk\StatamicAiAssistant\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class OpenAiController extends Controller
 {
-    public function description(Request $request)
+    public function __invoke(Request $request, string $tool)
+    {
+        switch ($tool) {
+            case 'product-description':
+                return $this->productDescription($request);
+            default:
+                abort(404, 'Tool not found');
+        }
+    }
+
+    protected function productDescription(Request $request)
     {
         $request->validate([
             'audience' => 'required|string',

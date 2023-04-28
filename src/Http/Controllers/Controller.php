@@ -1,6 +1,6 @@
 <?php
 
-namespace Jezzdk\StatamicAiFields\Http\Controllers;
+namespace Jezzdk\StatamicAiAssistant\Http\Controllers;
 
 use OpenAI;
 use OpenAI\Client;
@@ -57,6 +57,6 @@ class Controller
     {
         ini_set('default_socket_timeout', 300);
 
-        return OpenAI::client(config('ai-fields.openai_api_key'));
+        return OpenAI::client(config('ai-assistant.openai_api_key'));
     }
 }

@@ -1,18 +1,18 @@
 {
-    "name": "jezzdk/statamic-ai-fields",
+    "name": "jezzdk/statamic-ai-assistant",
     "autoload": {
         "psr-4": {
-            "Jezzdk\\StatamicAiFields\\": "src"
+            "Jezzdk\\StatamicAiAssistant\\": "src"
         }
     },
     "extra": {
         "statamic": {
-            "name": "Statamic Ai Fields",
-            "description": "Statamic Ai Fields addon"
+            "name": "Statamic AI Assistant",
+            "description": "Statamic AI Assistant addon"
         },
         "laravel": {
             "providers": [
-                "Jezzdk\\StatamicAiFields\\ServiceProvider"
+                "Jezzdk\\StatamicAiAssistant\\ServiceProvider"
             ]
         }
     },
