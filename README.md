@@ -7,6 +7,8 @@ A personal assistant for Statamic, powered by artificial intelligence.
 
 > You will need an OpenAI developer account if you want to use this addon.
 
+> You can use this addon without access to GPT-4!
+
 ## Features
 
 This addon does:
