@@ -32,14 +32,15 @@ class Controller
             ]);
         }
 
-        return $result->choices[0]->message->content;
+        return trim($result->choices[0]->message->content);
     }
 
     protected function completion(string $prompt): string
     {
         $result = $this->client()->completions()->create([
-            'model' => 'gpt-3',
+            'model' => 'text-davinci-003',
             'prompt' => $prompt,
+            'max_tokens' => 1800,
         ]);
 
         if (empty($result->choices)) {
@@ -50,7 +51,7 @@ class Controller
             ]);
         }
 
-        return $result->choices[0]->text;
+        return trim($result->choices[0]->text);
     }
 
     protected function client(): Client

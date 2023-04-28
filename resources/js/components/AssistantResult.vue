@@ -1,6 +1,6 @@
 <template>
     <div>
-        <textarea-input :value="result" :disabled="true" />
+        <textarea-input :value="result" />
 
         <div class="flex justify-between mt-2">
             <button type="button" class="btn" @click="$emit('cancel')">Try again</button>
