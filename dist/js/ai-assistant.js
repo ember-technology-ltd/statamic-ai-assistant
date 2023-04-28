@@ -182,7 +182,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Tools_ProductHeadlines_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Tools/ProductHeadlines.vue */ "./resources/js/components/Tools/ProductHeadlines.vue");
 /* harmony import */ var _Tools_ProductDescription_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Tools/ProductDescription.vue */ "./resources/js/components/Tools/ProductDescription.vue");
 /* harmony import */ var _Tools_CategoryDescription_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Tools/CategoryDescription.vue */ "./resources/js/components/Tools/CategoryDescription.vue");
-/* harmony import */ var _Tools_CallToAction_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Tools/CallToAction.vue */ "./resources/js/components/Tools/CallToAction.vue");
+/* harmony import */ var _Tools_CallToAction_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Tools/CallToAction.vue */ "./resources/js/components/Tools/CallToAction.vue");
 //
 //
 //
@@ -328,7 +328,7 @@ __webpack_require__.r(__webpack_exports__);
     'product-headlines': _Tools_ProductHeadlines_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
     'product-description': _Tools_ProductDescription_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
     'category-description': _Tools_CategoryDescription_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
-    'call-to-action': _Tools_CallToAction_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
+    'call-to-action': _Tools_CallToAction_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
   },
   data: function data() {
     return {
@@ -1546,7 +1546,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.top-1\\/2 {\n    top: 50%;\n}\n.slide-enter-active,\n.slide-leave-active {\n    transition: transform 1s;\n}\n.slide-enter-to {\n    transform: translateX(0);\n}\n.slide-enter,\n.slide-leave-to\n{\n    transform: translateX(100%);\n}\n", ""]);
+exports.push([module.i, "\n.top-1\\/2 {\n    top: 50%;\n}\n", ""]);
 
 // exports
 

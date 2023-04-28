@@ -162,19 +162,4 @@ export default {
 .top-1\/2 {
     top: 50%;
 }
-
-.slide-enter-active,
-.slide-leave-active {
-    transition: transform 1s;
-}
-
-.slide-enter-to {
-    transform: translateX(0);
-}
-
-.slide-enter,
-.slide-leave-to
-{
-    transform: translateX(100%);
-}
 </style>
