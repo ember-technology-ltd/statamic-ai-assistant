@@ -5,6 +5,14 @@
             "Jezzdk\\StatamicAiAssistant\\": "src"
         }
     },
+    "authors": [
+        {
+            "name": "Jess Stopa"
+        }
+    ],
+    "support": {
+        "email": "jess@stopa.dk"
+    },
     "extra": {
         "statamic": {
             "name": "Statamic AI Assistant",
