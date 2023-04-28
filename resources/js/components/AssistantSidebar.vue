@@ -62,9 +62,9 @@
                             <h3>Copywriting by formula</h3>
                             <p class="text-grey-70 text-sm mt-2">Create text based on the AIDA or QUEST formula.</p>
                         </div>
-                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'product_headline'">
-                            <h3>Product headline</h3>
-                            <p class="text-grey-70 text-sm mt-2">Create a product headline that stands out.</p>
+                        <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'product_headlines'">
+                            <h3>Product headlines</h3>
+                            <p class="text-grey-70 text-sm mt-2">Create product headlines that stands out.</p>
                         </div>
                         <div class="border border-grey-40 rounded-lg p-4 hover:bg-grey-10 cursor-pointer" @click="tool = 'product_description'">
                             <h3>Product description</h3>
@@ -102,8 +102,17 @@
                 <template v-if="tool === 'copywriting'">
                     <copywriting @back="tool = null" />
                 </template>
+                <template v-if="tool === 'product_headlines'">
+                    <product-headlines @back="tool = null" />
+                </template>
                 <template v-if="tool === 'product_description'">
                     <product-description @back="tool = null" />
+                </template>
+                <template v-if="tool === 'category_description'">
+                    <category-description @back="tool = null" />
+                </template>
+                <template v-if="tool === 'call_to_action'">
+                    <call-to-action @back="tool = null" />
                 </template>
             </div>
         </stack>
@@ -118,7 +127,10 @@ import Summarizer from './Tools/Summarizer.vue';
 import Rephraser from './Tools/Rephraser.vue';
 import GrammarCheck from './Tools/GrammarCheck.vue';
 import Copywriting from './Tools/Copywriting.vue';
+import ProductHeadlines from './Tools/ProductHeadlines.vue';
 import ProductDescription from './Tools/ProductDescription.vue';
+import CategoryDescription from './Tools/CategoryDescription.vue';
+import CallToAction from './Tools/CallToAction.vue';
 
 export default {
     components: {
@@ -129,7 +141,10 @@ export default {
         'rephraser': Rephraser,
         'grammar-check': GrammarCheck,
         'copywriting': Copywriting,
+        'product-headlines': ProductHeadlines,
         'product-description': ProductDescription,
+        'category-description': CategoryDescription,
+        'call-to-action': CallToAction,
     },
     data() {
         return {

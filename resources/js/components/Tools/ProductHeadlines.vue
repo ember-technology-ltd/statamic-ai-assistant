@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-2">
-        <h3 class="text-grey-80 mt-4">Product description</h3>
+        <h3 class="text-grey-80 mt-4">Product headlines</h3>
         <div v-if="processing">
             <assistant-spinner />
         </div>
@@ -40,11 +40,11 @@
                 </div>
                 <div class="w-1/2">
                     <div class="help-block">
-                        <p>Max words</p>
+                        <p>Amount</p>
                     </div>
-                    <text-input type="text" v-model="max_words" placeholder="200" :disabled="processing" />
-                    <div v-if="errors.max_words" class="text-sm text-red">
-                        {{ errors.max_words[0] }}
+                    <select-input :options="amountOptions" v-model="amount" :isReadOnly="processing" />
+                    <div v-if="errors.amount" class="text-sm text-red">
+                        {{ errors.amount[0] }}
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@ export default {
             tone: null,
             product_title: null,
             product_description: null,
-            max_words: null,
+            amount: 5,
         }
     },
     computed: {
@@ -86,16 +86,30 @@ export default {
                 { value: 'friendly', label: 'Friendly' },
                 { value: 'exciting', label: 'Exciting' },
             ];
+        },
+        amountOptions() {
+            return [
+                { value: 1, label: '1' },
+                { value: 2, label: '2' },
+                { value: 3, label: '3' },
+                { value: 4, label: '4' },
+                { value: 5, label: '5' },
+                { value: 6, label: '6' },
+                { value: 7, label: '7' },
+                { value: 8, label: '8' },
+                { value: 9, label: '9' },
+                { value: 10, label: '10' },
+            ];
         }
     },
     methods: {
         generate() {
-            this.request('product-description', {
+            this.request('product-headlines', {
                 audience: this.audience,
                 tone: this.tone,
                 product_title: this.product_title,
                 product_description: this.product_description,
-                max_words: this.max_words,
+                amount: this.amount,
             });
         },
     }

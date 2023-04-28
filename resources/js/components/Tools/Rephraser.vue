@@ -31,7 +31,7 @@
                     <div class="help-block">
                         <p>Change the audience</p>
                     </div>
-                    <text-input type="text" v-model="audience" placeholder="children" :readOnly="processing" />
+                    <text-input type="text" v-model="audience" placeholder="eg. children" :readOnly="processing" />
                     <div v-if="errors.audience" class="text-sm text-red">
                         {{ errors.audience[0] }}
                     </div>

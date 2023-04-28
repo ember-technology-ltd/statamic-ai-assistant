@@ -22,7 +22,7 @@
                     <div class="help-block">
                         <p>Product Title (required)</p>
                     </div>
-                    <text-input type="text" v-model="product_title" placeholder="Black slippers" :disabled="processing" />
+                    <text-input type="text" v-model="product_title" placeholder="Write the name of the product" :disabled="processing" />
                     <div v-if="errors.product_title" class="text-sm text-red">
                         {{ errors.product_title[0] }}
                     </div>
@@ -31,7 +31,7 @@
                     <div class="help-block">
                         <p>Audience (required)</p>
                     </div>
-                    <text-input type="text" v-model="audience" placeholder="women" :disabled="processing" />
+                    <text-input type="text" v-model="audience" placeholder="eg. women" :disabled="processing" />
                     <div v-if="errors.audience" class="text-sm text-red">
                         {{ errors.audience[0] }}
                     </div>
@@ -41,7 +41,7 @@
                 <div class="help-block">
                     <p>Product Description (required)</p>
                 </div>
-                <textarea-input v-model="product_description" placeholder="A pair of black slippers with a soft footbed" :disabled="processing" />
+                <textarea-input v-model="product_description" placeholder="Write a short description of the product" :disabled="processing" />
                 <div v-if="errors.product_description" class="text-sm text-red">
                     {{ errors.product_description[0] }}
                 </div>

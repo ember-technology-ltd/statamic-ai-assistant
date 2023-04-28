@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-2">
-        <h3 class="text-grey-80 mt-4">Product description</h3>
+        <h3 class="text-grey-80 mt-4">Call-to-action</h3>
         <div v-if="processing">
             <assistant-spinner />
         </div>
@@ -28,24 +28,13 @@
                     </div>
                 </div>
             </div>
-            <div class="flex justify-between gap-4">
-                <div class="w-1/2">
-                    <div class="help-block">
-                        <p>Product Title (required)</p>
-                    </div>
-                    <text-input type="text" v-model="product_title" placeholder="Write the name of the product" :disabled="processing" />
-                    <div v-if="errors.product_title" class="text-sm text-red">
-                        {{ errors.product_title[0] }}
-                    </div>
+            <div>
+                <div class="help-block">
+                    <p>Product Title (required)</p>
                 </div>
-                <div class="w-1/2">
-                    <div class="help-block">
-                        <p>Max words</p>
-                    </div>
-                    <text-input type="text" v-model="max_words" placeholder="200" :disabled="processing" />
-                    <div v-if="errors.max_words" class="text-sm text-red">
-                        {{ errors.max_words[0] }}
-                    </div>
+                <text-input type="text" v-model="product_title" placeholder="Write the name of the product" :disabled="processing" />
+                <div v-if="errors.product_title" class="text-sm text-red">
+                    {{ errors.product_title[0] }}
                 </div>
             </div>
             <div>
@@ -73,7 +62,6 @@ export default {
             tone: null,
             product_title: null,
             product_description: null,
-            max_words: null,
         }
     },
     computed: {
@@ -90,12 +78,11 @@ export default {
     },
     methods: {
         generate() {
-            this.request('product-description', {
+            this.request('call-to-action', {
                 audience: this.audience,
                 tone: this.tone,
                 product_title: this.product_title,
                 product_description: this.product_description,
-                max_words: this.max_words,
             });
         },
     }

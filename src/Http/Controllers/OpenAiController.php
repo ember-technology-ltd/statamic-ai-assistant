@@ -13,8 +13,6 @@ class OpenAiController extends Controller
                 return $this->ideaGenerator($request);
             case 'outliner':
                 return $this->outliner($request);
-            case 'product-description':
-                return $this->productDescription($request);
             case 'intro-text':
                 return $this->introText($request);
             case 'summarizer':
@@ -25,6 +23,14 @@ class OpenAiController extends Controller
                 return $this->grammarCheck($request);
             case 'copywriting':
                 return $this->copywriting($request);
+            case 'product-headlines':
+                return $this->productHeadlines($request);
+            case 'product-description':
+                return $this->productDescription($request);
+            case 'category-description':
+                return $this->categoryDescription($request);
+            case 'call-to-action':
+                return $this->callToAction($request);
             default:
                 abort(404, 'Tool not found');
         }
@@ -183,6 +189,30 @@ class OpenAiController extends Controller
         return $this->completion($prompt);
     }
 
+    protected function productHeadlines(Request $request)
+    {
+        $request->validate([
+            'audience' => 'required|string',
+            'tone' => 'required|string',
+            'product_title' => 'required|string',
+            'product_description' => 'required|string',
+            'amount' => 'numeric|nullable',
+        ]);
+
+        $prompt = <<<EOT
+        Write some SEO optimized product headlines that stands out.
+
+        The audience is {$request->input('audience')}.
+        The tone is {$request->input('tone')}.
+        The product title is {$request->input('product_title')}.
+        The product description is {$request->input('product_description')}.
+
+        Here is {$request->input('amount', 5)} headlines:
+        EOT;
+
+        return $this->completion($prompt);
+    }
+
     protected function productDescription(Request $request)
     {
         $request->validate([
@@ -206,6 +236,62 @@ class OpenAiController extends Controller
         The product title is {$request->input('product_title')}.
         The product description is {$request->input('product_description')}.
         Please write a new product description, with a maximum of {$request->input('max_words', 'unlimited')} words.
+        EOT;
+
+        return $this->chat($instructions, $prompt);
+    }
+
+    protected function categoryDescription(Request $request)
+    {
+        $request->validate([
+            'category' => 'required|string',
+            'keyword' => 'required|string',
+            'audience' => 'required|string',
+            'business_name' => 'required|string',
+            'business_description' => 'required|string',
+        ]);
+
+        $instructions = <<<EOT
+        You are a marketing assistant.
+        You will help generate a SEO optimized category description for a product category.
+        I will provide you with the category name, audience, keyword, business name and business description.
+        You will provide me with a new product category description only.
+        EOT;
+
+        $prompt = <<<EOT
+        The category name is {$request->input('category')}.
+        Include the keyword {$request->input('keyword')}.
+        The audience is {$request->input('audience')}.
+        The business name is {$request->input('business_name')}.
+        The business description is {$request->input('business_description')}.
+        Please write a great new product category description.
+        EOT;
+
+        return $this->chat($instructions, $prompt);
+    }
+
+    protected function callToAction(Request $request)
+    {
+        $request->validate([
+            'audience' => 'required|string',
+            'tone' => 'required|string',
+            'product_title' => 'required|string',
+            'product_description' => 'required|string',
+        ]);
+
+        $instructions = <<<EOT
+        You are a marketing assistant.
+        You will help generate a SEO optimized call-to-action text for a new product.
+        I will provide you with the audience, tone, product title and description.
+        You will provide me with a call-to-action.
+        EOT;
+
+        $prompt = <<<EOT
+        The audience is {$request->input('audience')}.
+        The tone should be {$request->input('tone')}.
+        The product title is {$request->input('product_title')}.
+        The product description is {$request->input('product_description')}.
+        Please write a converting call-to-action.
         EOT;
 
         return $this->chat($instructions, $prompt);
