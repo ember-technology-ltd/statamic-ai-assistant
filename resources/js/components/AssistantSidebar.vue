@@ -105,7 +105,7 @@ export default {
         }
     },
     mounted() {
-        console.log('sidebar mounted');
+        //
     },
 };
 </script>
