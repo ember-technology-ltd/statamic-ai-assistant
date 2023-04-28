@@ -23,7 +23,7 @@ class ServiceProvider extends AddonServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/ai-assistant.php' => config_path('ai-assistant.php'),
-          ]);
+          ], 'config');
     }
 
     public function register()
