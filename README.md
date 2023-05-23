@@ -3,7 +3,7 @@
 ![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0+-FF269E?style=for-the-badge&link=https://statamic.com)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jezzdk/statamic-ai-assistant.svg?style=for-the-badge)](https://packagist.org/packages/jezzdk/statamic-ai-assistant)
 
-A personal assistant for Statamic, powered by artificial intelligence.
+A personal assistant for Statamic, powered by artificial intelligence with OpenAI.
 
 > You will need an OpenAI developer account if you want to use this addon.
 

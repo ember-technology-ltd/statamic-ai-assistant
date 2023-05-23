@@ -3,6 +3,7 @@
 namespace Jezzdk\StatamicAiAssistant;
 
 use Illuminate\Support\Facades\Route;
+use Jezzdk\StatamicAiAssistant\Http\Controllers\OpenAiController;
 use Statamic\Providers\AddonServiceProvider;
 
 class ServiceProvider extends AddonServiceProvider
@@ -11,14 +12,10 @@ class ServiceProvider extends AddonServiceProvider
         __DIR__ . '/../dist/js/ai-assistant.js',
     ];
 
-    // protected $fieldtypes = [
-    //     \Jezzdk\StatamicAiAssistant\Fieldtypes\ProductDescription::class,
-    // ];
-
     public function bootAddon()
     {
         $this->registerCpRoutes(function () {
-            Route::post('/addons/jezzdk/statamic-ai-assistant/{tool}', 'OpenAiController')->name('jezzdk.statamic-ai-assistant');
+            Route::post('/addons/jezzdk/statamic-ai-assistant/{tool}', OpenAiController::class)->name('jezzdk.statamic-ai-assistant');
         });
 
         $this->publishes([
