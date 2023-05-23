@@ -9,7 +9,19 @@ use Statamic\Providers\AddonServiceProvider;
 class ServiceProvider extends AddonServiceProvider
 {
     protected $scripts = [
-        __DIR__ . '/../dist/js/ai-assistant.js',
+        __DIR__ . '/../dist/js/addon.js',
+    ];
+
+    protected $stylesheets = [
+        __DIR__ . '/../dist/css/addon.css',
+    ];
+
+    protected $vite = [
+        'input' => [
+            'resources/js/addon.js',
+            'resources/css/addon.css',
+        ],
+        'publicDirectory' => 'dist',
     ];
 
     public function bootAddon()

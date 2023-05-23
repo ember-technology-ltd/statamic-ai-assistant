@@ -5,12 +5,12 @@
         <div class="flex justify-between mt-2">
             <button type="button" class="btn" @click="$emit('cancel')">Try again</button>
             <div class="flex items-center gap-2">
-                <div v-if="copied" class="text-xs text-grey-80">copied!</div>
+                <div v-if="copied" class="text-xs text-gray-800">copied!</div>
                 <button type="button" class="btn" @click="copy">Copy to clipboard</button>
             </div>
         </div>
 
-        <div class="my-4 text-sm text-grey-60 text-center">
+        <div class="my-4 text-sm text-gray-600">
             Disclaimer: The generated text is for inspiration only and should not be used as is. It is your responsibility to ensure that the generated text is in compliance with your local laws and regulations.
         </div>
     </div>

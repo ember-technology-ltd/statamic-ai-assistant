@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-2">
-        <h3 class="text-grey-80 mt-4">Call-to-action</h3>
+        <h3 class="text-gray-800 mt-4">Call-to-action</h3>
         <div v-if="processing">
             <assistant-spinner />
         </div>
