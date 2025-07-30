@@ -38,7 +38,7 @@ class Controller
     protected function completion(string $prompt): string
     {
         $result = $this->client()->completions()->create([
-            'model' => 'text-davinci-003',
+            'model' => 'gpt-3.5-turbo-instruct',
             'prompt' => $prompt,
             'max_tokens' => 1800,
         ]);
